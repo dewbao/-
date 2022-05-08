@@ -1,0 +1,10 @@
+NSString *hanziText = @"我是中国人";  
+if ([hanziText length]) {  
+    NSMutableString *ms = [[NSMutableString alloc] initWithString:hanziText];  
+    if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO)) {  
+        NSLog(@"pinyin: %@", ms);  
+    }  
+    if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO)) {  
+        NSLog(@"pinyin: %@", ms);  
+    }  
+}
